@@ -3,11 +3,17 @@ import java.util.Arrays;
 import java.util.Collection;
 
 public class ObjectBox {
-    private Collection<Object> container;
+    protected Collection<Object> container;
+
+
+    public ObjectBox(Collection<Object> container){
+        //Здесь может быть любой контейнер
+        this.container = container;
+    }
 
     public ObjectBox(Object[] arr){
         //Здесь может быть любой контейнер
-        container = new ArrayList<Object>(Arrays.asList(arr));
+        container = new ArrayList<>(Arrays.asList(arr));
     }
 
     public void addObject(Object obj) {

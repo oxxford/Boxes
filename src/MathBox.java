@@ -1,15 +1,14 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 
-public class MathBox {
-    private ArrayList<Number> container;
-
+public class MathBox extends ObjectBox{
     public MathBox(Number[] arr) {
-        container = new ArrayList<>(Arrays.asList(arr));
+        super(arr);
     }
 
-    public ArrayList<Number> getContainer() {
-        return container;
+    public ArrayList<Object> getContainer() {
+        return (ArrayList<Object>)container;
     }
 
     public void remove(int n) {
@@ -19,12 +18,21 @@ public class MathBox {
     public Number summator() {
         // Нельзя напрямую складывать два значения типа Number
         // Я взял их double представление потому что int кастуется к double, а наоборот - нет
-        return container.stream().reduce((a, b) -> a.doubleValue() + b.doubleValue()).orElse(null);
+        return (Number) container.stream().reduce((a, b) ->
+                ((Number)a).doubleValue() + ((Number)b).doubleValue()).orElse(null);
     }
 
     public void splitter(double delimiter) {
         // Нельзя напрямую делить Number и double
-        container.replaceAll(a -> a.doubleValue() / delimiter);
+        ((ArrayList<Object>)container).replaceAll(a -> ((Number)a).doubleValue() / delimiter);
+    }
+
+    @Override
+    public void addObject(Object obj) {
+        if (obj instanceof Number)
+            container.add(obj);
+        else
+            throw new ClassCastException("Required Number!");
     }
 
     @Override

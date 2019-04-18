@@ -1,7 +1,6 @@
 class Main {
     public static void main(String[] args) {
-        /*
-        Object[] arr = {5, "qwe", 4};
+        /*Object[] arr = {5, "qwe", 4};
 
         ObjectBox b = new ObjectBox(arr);
         b.removeObject(5);
@@ -15,9 +14,11 @@ class Main {
 
         MathBox m1 = new MathBox(arr1);
         MathBox m2 = new MathBox(arr2);
+        m2.addObject(n2);
 
-        System.out.println(m1);
+        System.out.println(m1.hashCode());
         System.out.println(m2.hashCode());
         */
+
     }
 }
