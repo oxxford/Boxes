@@ -11,7 +11,7 @@ public class MathBox extends ObjectBox{
         return (ArrayList<Object>)container;
     }
 
-    public void remove(int n) {
+    public void remove(Number n) {
         container.remove(n);
     }
 
